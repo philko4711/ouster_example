@@ -293,7 +293,8 @@ void GazeboRosOusterLaser::OnScan(ConstLaserScanStampedPtr& _msg)
 
       // Range
       double r = _msg->scan().ranges(i + j * rangeCount);
-      if ((MIN_RANGE >= r) || (r >= MAX_RANGE)) {
+      if (0)//(MIN_RANGE >= r) || (r >= MAX_RANGE)) 
+      {
         continue;
       }
 
@@ -322,7 +323,8 @@ void GazeboRosOusterLaser::OnScan(ConstLaserScanStampedPtr& _msg)
       }
 
       // pAngle is rotated by yAngle:
-      if ((MIN_RANGE < r) && (r < MAX_RANGE)) {
+      if (1)//(MIN_RANGE < r) && (r < MAX_RANGE)) 
+      {
         *((float*)(ptr + 0)) = r * cos(pAngle) * cos(yAngle);
         *((float*)(ptr + 4)) = r * cos(pAngle) * sin(yAngle);
 #if GAZEBO_MAJOR_VERSION > 2
